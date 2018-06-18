@@ -1,2 +1,5 @@
 /.metadata/
-/menu/target/
+menu/target/*
+menu/.settings
+RemoteSystemsTempFiles/
+.DS_Store
