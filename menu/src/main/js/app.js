@@ -1,20 +1,20 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {greeting: ""};
+		this.state = {value: ""};
 	}
 
 	componentDidMount() {
-		setState({greeting: "heeeey"})
+		this.setState({value: "heeeesssy"})
 	}
 
 	render() {
 		return (
-			<div>"heeyyyy"</div>
+			<div>{this.state.value}</div>
 		)
 	}
 }
