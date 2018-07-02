@@ -2,37 +2,48 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery'; 
 
-class App extends React.Component {
+class Menu extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {value: ""};
+		this.state = {name: ""};
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
-	componentDidMount() {
+	handleClick() {
 		$.ajax({
-	      type: 'GET',
-	      url: 'merchant/test',
+	      type: 'POST',
+	      url: 'merchant/register',
 	      contentType: 'application/json',
-	      dataType: 'json', //specify jsonp
-	      success: function(data) {
-	    	  console.log(data);
-	        this.setState({value: data});
-	      }.bind(this),
-	      error: function(e) {
-	         console.log('error', e);
+	      // dataType: 'json',
+	      data: JSON.stringify({
+	    	  name: this.state.name
+    	  }),
+	      success: function(response) {
+	        console.log('success', response);
+	      },
+	      error: function(response) {
+	         console.log('error', response);
 	      }
 	    });
 	}
 
+	handleChange(e) {
+		this.setState({name: e.target.value});
+	}
+
 	render() {
 		return (
-			<div>{this.state.value}</div>
+			<div>
+				merchant name: <input value={this.state.name} onChange={this.handleChange}/>
+				<button onClick={this.handleClick}>submit</button>
+			</div>
 		)
 	}
 }
 
 ReactDOM.render(
-	<App />,
+	<Menu />,
 	document.getElementById('react')
 )
