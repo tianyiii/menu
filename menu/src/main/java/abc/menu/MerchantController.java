@@ -30,6 +30,11 @@ public class MerchantController {
         return "greeting";
     }
     
+    @GetMapping(path="/test")
+    public ResponseEntity<?> test() {
+    	return new ResponseEntity<String>("12345", HttpStatus.OK);
+    }
+    
     @PostMapping(path="/{merchantId}/upload", consumes="application/json")
     public ResponseEntity<?> uploadMenu(@PathVariable String merchantId, @RequestBody String input) {
     	return new ResponseEntity<String>(HttpStatus.OK);
