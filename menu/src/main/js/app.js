@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery'; 
 
 class App extends React.Component {
 
@@ -9,7 +10,19 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({value: "heeeesssy"})
+		$.ajax({
+	      type: 'GET',
+	      url: 'merchant/test',
+	      contentType: 'application/json',
+	      dataType: 'json', //specify jsonp
+	      success: function(data) {
+	    	  console.log(data);
+	        this.setState({value: data});
+	      }.bind(this),
+	      error: function(e) {
+	         console.log('error', e);
+	      }
+	    });
 	}
 
 	render() {
