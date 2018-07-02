@@ -1,5 +1,7 @@
 package abc.menu;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/merchant")
 public class MerchantController {
+	private static final Logger LOGGER = LoggerFactory.getLogger(MerchantController.class);
 
     @GetMapping
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
