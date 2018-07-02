@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import abc.storage.Merchant;
 import abc.storage.MerchantMongoRepository;
 
 @Controller
@@ -36,13 +37,15 @@ public class MerchantController {
     }
     
     @PostMapping(path="/{merchantId}/upload", consumes="application/json")
-    public ResponseEntity<?> uploadMenu(@PathVariable String merchantId, @RequestBody String input) {
+    public ResponseEntity<?> uploadMenu(@PathVariable String merchantId, @RequestBody Merchant merchant) {
+    	// TODO: Remove
+    	LOGGER.info(merchantMongoRepository.findMerhantByName(merchant.getName()).toString());
     	return new ResponseEntity<String>(HttpStatus.OK);
     }
     
     @PostMapping(path="/register", consumes="application/json")
-    public ResponseEntity<?> register(@RequestBody String input) {
-    	System.out.println(input);
+    public ResponseEntity<?> register(@RequestBody Merchant merchant) {
+    	merchantMongoRepository.save(merchant);
     	return new ResponseEntity<String>(HttpStatus.OK);
     }
 

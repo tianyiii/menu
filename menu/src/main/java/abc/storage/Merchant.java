@@ -10,6 +10,9 @@ public class Merchant {
 	
 	private String name;
 	
+	public Merchant() {
+	}
+
 	public Merchant(final String name) {
 		this.name = name;
 	}
@@ -20,6 +23,10 @@ public class Merchant {
 	
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
