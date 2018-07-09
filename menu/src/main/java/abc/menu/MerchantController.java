@@ -45,8 +45,12 @@ public class MerchantController {
     
     @PostMapping(path="/register", consumes="application/json")
     public ResponseEntity<?> register(@RequestBody Merchant merchant) {
-    	merchantMongoRepository.save(merchant);
-    	return new ResponseEntity<String>(HttpStatus.OK);
+    	Merchant registerd = merchantMongoRepository.save(merchant);
+    	if (registerd != null) {
+    		LOGGER.info(String.format("Registered merchant: %s", registerd.toString()));
+        	return new ResponseEntity<String>(HttpStatus.OK);
+    	}
+    	return new ResponseEntity<String>("Failed to register.", HttpStatus.BAD_REQUEST);
     }
 
 }

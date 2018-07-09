@@ -1,7 +1,7 @@
 /.metadata/
-menu/target/*
-menu/.settings
-menu/.classpath
+/menu/target/*
+/menu/.settings
+/menu/.classpath
 menu/node_modules/.cache/
 menu/src/main/resources/static/
 RemoteSystemsTempFiles/

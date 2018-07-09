@@ -3,34 +3,35 @@ package abc.storage;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.Data;
+
+@Data
 @Document(collection = "merchants")
 public class Merchant {
+	@Data
+	public static class Address {
+		private String street;
+		private String city;
+		private String state;
+		private String country;
+		private int zipCode;
+
+		public Address(final String street, final String city, final String state, final String country,
+				final int zipCode) {
+			this.street = street;
+			this.city = city;
+			this.state = state;
+			this.country = country;
+			this.zipCode = zipCode;
+		}
+	}
+
 	@Id
 	private String id;
-	
 	private String name;
-	
-	public Merchant() {
-	}
+	private Address address;
 
 	public Merchant(final String name) {
 		this.name = name;
-	}
-
-	public String getId() {
-		return id;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Merchant [id=" + id + ", name=" + name + "]";
 	}
 }
