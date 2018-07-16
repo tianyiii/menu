@@ -1,4 +1,4 @@
-package abc.storage;
+package com.abc.menu.storage;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 

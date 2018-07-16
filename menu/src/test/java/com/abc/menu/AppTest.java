@@ -1,4 +1,4 @@
-package abc.menu;
+package com.abc.menu;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

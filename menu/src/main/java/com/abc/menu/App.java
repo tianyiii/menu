@@ -1,4 +1,4 @@
-package abc.menu;
+package com.abc.menu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 @SpringBootApplication
-@EnableMongoRepositories("abc.storage")
+@EnableMongoRepositories("com.abc.menu.storage")
 public class App implements CommandLineRunner {
 	private static final Logger LOGGER = LoggerFactory.getLogger(App.class);
 

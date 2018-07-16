@@ -1,4 +1,4 @@
-package abc.storage;
+package com.abc.menu.storage;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -15,6 +15,9 @@ public class Merchant {
 		private String state;
 		private String country;
 		private int zipCode;
+		
+		public Address() {
+		}
 
 		public Address(final String street, final String city, final String state, final String country,
 				final int zipCode) {
@@ -30,6 +33,9 @@ public class Merchant {
 	private String id;
 	private String name;
 	private Address address;
+	
+	public Merchant() {
+	}
 
 	public Merchant(final String name) {
 		this.name = name;

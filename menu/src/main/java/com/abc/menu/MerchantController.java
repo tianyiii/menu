@@ -1,4 +1,4 @@
-package abc.menu;
+package com.abc.menu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import abc.storage.Merchant;
-import abc.storage.MerchantMongoRepository;
+import com.abc.menu.storage.Merchant;
+import com.abc.menu.storage.MerchantMongoRepository;
 
 @Controller
 @RequestMapping("/merchant")
