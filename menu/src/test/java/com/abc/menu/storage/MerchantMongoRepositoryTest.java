@@ -6,6 +6,8 @@ import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,6 +46,8 @@ public class MerchantMongoRepositoryTest {
 		this.repository.save(merchant2);
 		assertNotNull(merchant1.getId());
 		assertNotNull(merchant2.getId());
+		assertNotNull(merchant1.getCreationTime());
+		assertNotNull(merchant2.getCreationTime());
 	}
 
 	@Test
@@ -60,6 +64,8 @@ public class MerchantMongoRepositoryTest {
 	public void testUpdateData() {
 		Merchant merchant1 = repository.findMerhantByName("test1");
 		merchant1.setAddress(new Address("street", "city", "state", "country", 123));
+		DateTime updatedCreationTime = DateTimeFormat.forPattern("yyyy-MM-dd").parseDateTime("2018-01-01");
+		merchant1.setCreationTime(updatedCreationTime);
 		repository.save(merchant1);
 		Merchant newFetch = repository.findMerchantById(merchant1.getId());
 		assertNotNull(newFetch);
@@ -68,6 +74,7 @@ public class MerchantMongoRepositoryTest {
 		assertEquals("state", newFetch.getAddress().getState());
 		assertEquals("country", newFetch.getAddress().getCountry());
 		assertEquals(123, newFetch.getAddress().getZipCode());
+		assertEquals(updatedCreationTime, newFetch.getCreationTime());
 	}
 
 	@After
