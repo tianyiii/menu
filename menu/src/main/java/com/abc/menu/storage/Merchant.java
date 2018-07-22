@@ -1,6 +1,7 @@
 package com.abc.menu.storage;
 
 import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -34,7 +35,7 @@ public class Merchant {
 	private String id;
 	private String name;
 	private Address address;
-	private DateTime creationTime = new DateTime();
+	private DateTime creationTime = new DateTime().withZone(DateTimeZone.forID("America/Los_Angeles"));
 
 	public Merchant() {
 	}
