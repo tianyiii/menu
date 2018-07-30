@@ -1,5 +1,5 @@
-/.metadata/
-/menu/target/*
+.metadata/*
+menu/target/*
 menu/.settings
 menu/.classpath
 menu/node_modules/.cache/
